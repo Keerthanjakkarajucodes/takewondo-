@@ -1,0 +1,51 @@
+/* ============================================================
+   TEMPLE OF MARTIAL ARTS — GLOBAL DESIGN SYSTEM
+   ============================================================ */
+
+:root {
+  /* Colors */
+  --red:       #EF3B36;
+  --red-dark:  #C92E2A;
+  --navy:      #081528;
+  --navy-light:#0D2040;
+  --white:     #FFFFFF;
+  --bg:        #F7F7F7;
+  --text:      #111111;
+  --text-2:    #6B7280;
+  --border:    #E5E7EB;
+  --card-bg:   rgba(255,255,255,0.96);
+
+  /* Typography */
+  --font-heading: 'Bebas Neue', 'Oswald', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* Spacing */
+  --nav-h: 72px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a   { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: var(--font-body); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
