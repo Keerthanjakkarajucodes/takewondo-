@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Programs.css';
 import imgTKD  from '../assets/prog-taekwondo.jpg';
 import imgKick from '../assets/prog-kickboxing.jpg';
@@ -42,6 +42,7 @@ const PROGRAMS = [
 
 export default function Programs() {
   const sectionRef = useRef(null);
+  const [revealedIndices, setRevealedIndices] = useState(new Set());
 
   useEffect(() => {
     const cards = sectionRef.current?.querySelectorAll('.prog-card');
@@ -49,7 +50,12 @@ export default function Programs() {
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            e.target.classList.add('in');
+            const index = parseInt(e.target.getAttribute('data-index') || '0', 10);
+            setRevealedIndices((prev) => {
+              const next = new Set(prev);
+              next.add(index);
+              return next;
+            });
             io.unobserve(e.target);
           }
         });
@@ -83,8 +89,9 @@ export default function Programs() {
         {PROGRAMS.map((p, i) => (
           <article
             key={p.id}
-            className="prog-card"
-            style={{ transitionDelay: `${i * 0.1}s` }}
+            data-index={i}
+            className={`prog-card ${revealedIndices.has(i) ? 'in' : ''}`}
+            style={{ '--delay': `${i * 0.18}s` }}
             id={`program-${p.id}`}
           >
             {/* Photo */}

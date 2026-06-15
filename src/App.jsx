@@ -1,9 +1,10 @@
 import './index.css';
-import Navbar   from './components/Navbar';
-import Hero     from './components/Hero';
-import Marquee  from './components/Marquee';
-import About    from './components/About';
-import Programs from './components/Programs';
+import Navbar     from './components/Navbar';
+import Hero       from './components/Hero';
+import Marquee    from './components/Marquee';
+import About      from './components/About';
+import Programs   from './components/Programs';
+import WhyChoose  from './components/WhyChoose';
 
 export default function App() {
   return (
@@ -30,6 +31,8 @@ export default function App() {
       {/* ── Below-fold content (natural scroll) ── */}
       <main>
         <About />
+        <Programs />
+        <WhyChoose />
       </main>
     </>
   );
