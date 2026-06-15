@@ -22,6 +22,7 @@ export default function App() {
           paddingTop: 'var(--nav-h)',
         }}
       >
+        {/* paddingTop reserves space under the fixed navbar */}
         <Hero />
         <Marquee />
       </div>
