@@ -11,7 +11,7 @@
 .programs__header {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 0 6% 64px;
+  padding: 0 6% 56px;
 }
 
 .programs__label {
@@ -40,7 +40,7 @@
   line-height: 1.1;
   color: var(--navy);
   font-weight: 400;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 .programs__heading em {
   font-style: italic;
@@ -52,6 +52,7 @@
   font-size: 15px;
   color: #666;
   max-width: 440px;
+  line-height: 1.6;
 }
 
 /* ── Cards grid ── */
@@ -61,9 +62,10 @@
   padding: 0 6%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
+/* ── Entry animation ── */
 @keyframes prog-card-enter {
   from {
     opacity: 0;
@@ -84,66 +86,75 @@
   background: #fff;
   border: 1px solid rgba(8, 21, 40, 0.07);
   overflow: hidden;
-  
+
   /* Scroll reveal base state */
   opacity: 0;
 
-  /* Standard transitions for hover and unhover return */
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.4s ease;
+  /* Standard transitions for hover and return */
+  transition:
+    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 0.4s ease;
 }
+
 .prog-card.in {
   opacity: 1;
-  /* Play slow entrance reveal animation once scrolled into view */
   animation: prog-card-enter 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: var(--delay);
 }
+
 .prog-card.in:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 32px 72px rgba(8, 21, 40, 0.16);
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 40px rgba(8, 21, 40, 0.10),
+    0 6px 16px rgba(8, 21, 40, 0.06);
+  border-color: rgba(8, 21, 40, 0.10);
 }
 
-/* ── Card image ── */
+/* ── Card image — tighter aspect ratio for compact height ── */
 .prog-card__img-wrap {
   position: relative;
-  aspect-ratio: 3 / 4;
+  /* Reduced from 3/4 — gives ~15% less height */
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   background: #111;
 }
+
 .prog-card__img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.prog-card:hover .prog-card__img-wrap img {
-  transform: scale(1.06);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Overlay on hover */
+.prog-card.in:hover .prog-card__img-wrap img {
+  transform: scale(1.05);
+}
+
+/* Subtle base gradient — keeps image bright and premium */
 .prog-card__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(8, 21, 40, 0.72) 0%,
-    rgba(8, 21, 40, 0.15) 50%,
+    rgba(8, 21, 40, 0.55) 0%,
+    rgba(8, 21, 40, 0.08) 40%,
     transparent 100%
   );
-  opacity: 0.5;
-  transition: opacity 0.4s ease;
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
 }
-.prog-card:hover .prog-card__overlay {
-  opacity: 0.8;
+.prog-card.in:hover .prog-card__overlay {
+  opacity: 0.75;
 }
 
 /* Discipline tag */
 .prog-card__tag {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 14px;
+  right: 14px;
   background: var(--red);
   color: #fff;
   font-family: 'Barlow Condensed', sans-serif;
@@ -151,12 +162,12 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 5px 12px;
+  padding: 4px 10px;
 }
 
-/* ── Card content ── */
+/* ── Card content — tighter padding ── */
 .prog-card__content {
-  padding: 24px 24px 20px;
+  padding: 20px 20px 18px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -169,64 +180,84 @@
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--red);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .prog-card__title {
   font-family: 'DM Serif Display', serif;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 400;
   color: var(--navy);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   line-height: 1.15;
 }
 
 .prog-card__desc {
   font-family: 'Inter', sans-serif;
-  font-size: 13.5px;
+  font-size: 13px;
   color: #666;
-  line-height: 1.7;
+  line-height: 1.65;
   flex: 1;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-/* Enquire link */
+/* ── Enquire link with animated underline ── */
 .prog-card__link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--navy);
   text-decoration: none;
-  border-bottom: 1.5px solid var(--navy);
-  padding-bottom: 2px;
+  position: relative;
   align-self: flex-start;
-  transition: color 0.25s, border-color 0.25s;
+  padding-bottom: 3px;
+  transition: color 0.3s ease;
 }
-.prog-card__link svg {
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+/* Animated underline via pseudo-element */
+.prog-card__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--navy);
+  transform: scaleX(1);
+  transform-origin: left;
+  transition:
+    background 0.3s ease,
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.prog-card:hover .prog-card__link {
+
+.prog-card.in:hover .prog-card__link {
   color: var(--red);
-  border-color: var(--red);
 }
-.prog-card:hover .prog-card__link svg {
+.prog-card.in:hover .prog-card__link::after {
+  background: var(--red);
+  transform: scaleX(1.12);
+}
+
+.prog-card__link svg {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.prog-card.in:hover .prog-card__link svg {
   transform: translateX(4px);
 }
 
-/* Bottom accent bar — slides in on hover */
+/* ── Bottom accent bar — slides left → right on hover ── */
 .prog-card__bar {
   height: 3px;
   background: var(--red);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.prog-card:hover .prog-card__bar {
+.prog-card.in:hover .prog-card__bar {
   transform: scaleX(1);
 }
 
@@ -239,7 +270,7 @@
 @media (max-width: 600px) {
   .programs__grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
   }
   .programs { padding: 60px 0; }
 }
