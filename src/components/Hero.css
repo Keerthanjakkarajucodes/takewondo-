@@ -418,10 +418,10 @@
 
   .hero__right {
     order: -1;
-    height: 60vw;
-    min-height: 300px;
-    max-height: 480px;
-    padding-top: 0;
+    height: calc(60vw + var(--nav-h));
+    min-height: calc(300px + var(--nav-h));
+    max-height: calc(480px + var(--nav-h));
+    padding-top: var(--nav-h);
     width: 100%;
   }
 

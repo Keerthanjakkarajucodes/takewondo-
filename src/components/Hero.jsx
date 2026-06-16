@@ -31,7 +31,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero" aria-label="Hero section">
+    <section className="hero" id="home" aria-label="Hero section">
       {/* Background watermark */}
       <div className="hero__watermark" aria-hidden="true">TMA</div>
 

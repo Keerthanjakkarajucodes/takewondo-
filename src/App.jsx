@@ -19,9 +19,15 @@ export default function App() {
       {/* ── Hero viewport (exactly 100vh, no scroll) ── */}
       <div
         id="home"
-        className="home-viewport"
+        style={{
+          height: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: 'hidden',
+          paddingTop: 'var(--nav-h)',
+        }}
       >
-        {/* Spacing and layout handled in index.css */}
+        {/* paddingTop reserves space under the fixed navbar */}
         <Hero />
         <Marquee />
       </div>
