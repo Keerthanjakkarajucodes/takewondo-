@@ -72,3 +72,21 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   flex-shrink: 0;
   margin: 0 20px;
 }
+
+/* ── Home Fold Viewport Spacing ── */
+.home-viewport {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-top: 120px; /* Safe padding for desktop (navbar height + 46px spacing) */
+}
+
+@media (max-width: 900px) {
+  .home-viewport {
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+    padding-top: 100px; /* Safe padding for mobile/tablet */
+  }
+}
