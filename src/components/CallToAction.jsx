@@ -110,5 +110,15 @@ function Variant2() {
 }
 
 export default function CallToAction() {
-  return <Variant2 />;
+  return (
+    <>
+      {/* ── Section Divider ── */}
+      <div className="wc-divider" aria-hidden="true">
+        <span className="wc-divider__line" />
+        <span className="wc-divider__dot" />
+        <span className="wc-divider__line" />
+      </div>
+      <Variant2 />
+    </>
+  );
 }

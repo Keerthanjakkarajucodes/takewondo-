@@ -44,7 +44,12 @@ const SOCIAL = [
 ];
 
 const QUICK_LINKS = ["Home", "About", "Programs", "Gallery", "Contact"];
-const PROGRAMS    = ["Taekwondo", "Kickboxing", "MMA", "Self Defence"];
+const PROGRAMS = [
+  { name: "Taekwondo", href: "#program-taekwondo" },
+  { name: "Kickboxing", href: "#program-kickboxing" },
+  { name: "MMA", href: "#program-mma" },
+  { name: "Self Defence", href: "#program-selfdefence" },
+];
 
 /* ── Scroll-reveal hook ────────────────────────────────────── */
 function useReveal(ref) {
@@ -57,7 +62,7 @@ function useReveal(ref) {
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [ref]);
 }
 
 export default function Footer() {
@@ -93,8 +98,8 @@ export default function Footer() {
               />
             </div>
             <div className="ft-logo-text">
-              <span className="ft-logo-top">PR Sports Club</span>
-              <span className="ft-logo-sub">Temple Of Martial Arts</span>
+              <span className="ft-logo-top">PR SPORTS CLUB</span>
+              <span className="ft-logo-sub">TEMPLE OF MARTIAL ARTS</span>
             </div>
           </div>
 
@@ -134,10 +139,10 @@ export default function Footer() {
           <h3 className="ft-col-head">Programs</h3>
           <ul className="ft-links">
             {PROGRAMS.map((p) => (
-              <li key={p}>
-                <a href="#programs" className="ft-link">
+              <li key={p.name}>
+                <a href={p.href} className="ft-link">
                   <span className="ft-link-arrow" aria-hidden="true">→</span>
-                  {p}
+                  {p.name}
                 </a>
               </li>
             ))}

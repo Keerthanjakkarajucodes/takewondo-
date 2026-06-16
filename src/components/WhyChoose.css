@@ -2,29 +2,6 @@
    WHY CHOOSE — World-Class Luxury Section
    ══════════════════════════════════════════ */
 
-/* ── Section divider ── */
-.wc-divider {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 0 5%;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.wc-divider__line {
-  flex: 1;
-  height: 1px;
-  background: #E5E7EB;
-}
-.wc-divider__dot {
-  display: block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #EF3B36;
-  flex-shrink: 0;
-}
-
 /* ── Section wrapper ── */
 .wc-section {
   background: #FFFFFF;

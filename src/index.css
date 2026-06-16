@@ -49,3 +49,26 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+/* ── Global Section Divider ── */
+.wc-divider {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  width: 100%;
+}
+.wc-divider__line {
+  flex: 1;
+  height: 1px;
+  background: #E5E7EB;
+}
+.wc-divider__dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #EF3B36;
+  flex-shrink: 0;
+  margin: 0 20px;
+}

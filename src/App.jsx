@@ -4,8 +4,9 @@ import Hero       from './components/Hero';
 import Marquee    from './components/Marquee';
 import About      from './components/About';
 import Programs   from './components/Programs';
-import WhyChoose     from './components/WhyChoose';
-import CallToAction      from './components/CallToAction';
+import WhyChoose       from './components/WhyChoose';
+import GalleryPreview  from './components/GalleryPreview';
+import CallToAction    from './components/CallToAction';
 import AchievementStrip from './components/AchievementStrip';
 import Footer           from './components/Footer';
 
@@ -36,6 +37,7 @@ export default function App() {
         <About />
         <Programs />
         <WhyChoose />
+        <GalleryPreview />
         <CallToAction />
       </main>
 

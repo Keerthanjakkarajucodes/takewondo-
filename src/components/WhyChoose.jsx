@@ -153,12 +153,15 @@ function WhyCard({ reason, index, isMobile }) {
 export default function WhyChoose() {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined'
+      ? window.matchMedia('(pointer: coarse), (max-width: 820px)').matches
+      : false
+  );
 
   /* Detect mobile/touch */
   useEffect(() => {
     const mq = window.matchMedia('(pointer: coarse), (max-width: 820px)');
-    setIsMobile(mq.matches);
     const handler = (e) => setIsMobile(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
