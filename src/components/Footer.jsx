@@ -158,20 +158,20 @@ export default function Footer() {
             <ul className="ft-contact-list">
               <li>
                 <span className="ft-contact-label">Location</span>
-                <span className="ft-contact-val">Hyderabad, Telangana</span>
+                <span className="ft-contact-val">Hyderguda Cross Road,<br />Attapur, Hyderabad,<br />Telangana 500048</span>
               </li>
               <li>
                 <span className="ft-contact-label">Phone</span>
-                <a href="tel:+919999999999" className="ft-contact-val ft-contact-link">+91 99999 99999</a>
+                <a href="tel:+917799177061" className="ft-contact-val ft-contact-link">+91 77991 77061</a>
               </li>
               <li>
                 <span className="ft-contact-label">WhatsApp</span>
-                <a href="https://wa.me/919999999999" className="ft-contact-val ft-contact-link">+91 99999 99999</a>
+                <a href="https://wa.me/917799177061" className="ft-contact-val ft-contact-link">+91 77991 77061</a>
               </li>
               <li>
                 <span className="ft-contact-label">Email</span>
-                <a href="mailto:info@templeofmartialarts.in" className="ft-contact-val ft-contact-link">
-                  info@templeofmartialarts.in
+                <a href="mailto:tmafitstudio@gmail.com" className="ft-contact-val ft-contact-link">
+                  tmafitstudio@gmail.com
                 </a>
               </li>
             </ul>
@@ -180,6 +180,7 @@ export default function Footer() {
           {/* Training Hours sub-column */}
           <div className="ft-hours-sub">
             <h4 className="ft-hours-head">Training Hours</h4>
+            <p className="ft-hours-days">Monday – Saturday</p>
             <div className="ft-hours-block">
               <div className="ft-hours-entry">
                 <span className="ft-hours-label">Morning</span>

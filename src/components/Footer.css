@@ -29,6 +29,7 @@
   padding: 60px 4% 48px 5%;    /* reduced top and bottom */
   display: grid;
   grid-template-columns: 1.5fr 0.9fr 0.9fr 2.2fr;
+  justify-items: start;        /* align all columns to the left of their grid cells */
   gap: 48px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -135,6 +136,13 @@
   box-shadow: 0 8px 24px rgba(255, 69, 58, 0.22);
 }
 
+/* ── Columns ───────────────────────────────────────────────── */
+.ft-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 /* ── Column heading ──────────────────────────────────────────── */
 .ft-col-head {
   font-family: 'Bebas Neue', sans-serif;
@@ -168,7 +176,7 @@
 
 .ft-link {
   display: grid;
-  grid-template-columns: 14px 1fr;  /* fixed arrow column keeps text aligned */
+  grid-template-columns: 20px 1fr;  /* fixed arrow column keeps text aligned */
   align-items: center;
   gap: 6px;
   width: 100%;                      /* stretch full width so columns are consistent */
@@ -182,23 +190,25 @@
 
 .ft-link-arrow {
   color: #FF453A;
-  font-size: 11px;
-  opacity: 0;
-  transform: translateX(-4px);
-  transition: opacity .28s ease, transform .28s ease;
+  font-size: 18px;                  /* increased size of arrow (little big) */
+  opacity: 0;                       /* hidden at rest */
+  transform: translateX(-6px);      /* slightly offset to the left */
+  transition: opacity .25s ease, transform .25s ease, color .25s ease;
   justify-self: start;
+  line-height: 1;
 }
 
 .ft-link:hover { color: #ffffff; }
 
 .ft-link:hover .ft-link-arrow {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 1;                       /* visible on hover */
+  transform: translateX(0);         /* slide into position */
 }
 
 /* ── Contact + Hours side-by-side column ──────────────────── */
 .ft-col--contact {
   display: flex;
+  flex-direction: row;
   gap: 40px;
   align-items: flex-start;
 }
@@ -258,7 +268,15 @@
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: #FF453A;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+}
+
+.ft-hours-days {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #D8DEE8;
+  margin: 0 0 16px 0;
 }
 
 .ft-hours-block {
